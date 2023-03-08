@@ -1,9 +1,6 @@
-var maasali = 7000;
-var maascan = 5000;
-console.log(5000 + (5000 * 0.3)); // Maaş Ali
-console.log(5000 + (5000 * 0.3)); // Maaş Can
+let ali = 7000;
+let can = 8000;
+let zam = 0.3;
 
-// Türkçe kelimler kullanmamalıyız.
-// Arada boşluk olmaz.
-// Sayı ile başlamaz.
-
+console.log(ali + (ali * zam));
+console.log(can + (can * zam));
