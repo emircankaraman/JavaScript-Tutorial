@@ -24,8 +24,10 @@ sonuc %= a; // sonuc = sonuc % a
 sonuc = (a == b); // a - b ye eşit mi ?
 sonuc = (a !=b);  // a - b ye eşit değil mi ?
 sonuc = (a ===b); // değer kontrolü dışında tip kontrölüde yapıyor. 
-sonuc = (a !=b);
-
+sonuc = (a > b);  // a - b den büyük mü ?
+sonuc = (a < b);  // a - b den küçük mü ?
+sonuc = (a >= b); // a - b ye büyük eşit mi ?
+sonuc = (a <= b); // a - b ye küçük eşit 
 // 4--> Mantıksal Operatörler
 
 
