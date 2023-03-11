@@ -60,6 +60,17 @@ let ogr3 = [
 
 let ogrenciler = [ogr1,ogr2,ogr3];
 
+let yigit_yas = new Date().getFullYear() - ogrenciler[0][2];
+let ada_yas = new Date().getFullYear() - ogrenciler[1][2];
+let ahmet_yas = new Date().getFullYear() - ogrenciler[2][2];
+let yigit_ort = (ogrenciler[0][3][0] +ogrenciler[0][3][1]+ogrenciler[0][3][2])/3;
+let ada_ort = (ogrenciler[1][3][0] +ogrenciler[1][3][1]+ogrenciler[1][3][2])/3;
+let ahmet_ort = (ogrenciler[2][3][0] +ogrenciler[2][3][1]+ogrenciler[2][3][2])/3;
+
+
+console.log(`Yiğitin Yaşı : ${yigit_yas} / Ada'nın Yaşı : ${ada_yas}  / Ahmet'in Yaşı : ${ahmet_yas}`);
+console.log(`Yiğitin Ortalaması : ${yigit_ort.toFixed(1)} / Ada'nın Ortalaması :  ${ada_ort.toFixed(1)} / Ahmet'in Ortalaması : ${ahmet_ort.toFixed(1)}`);
+
 
 
 
