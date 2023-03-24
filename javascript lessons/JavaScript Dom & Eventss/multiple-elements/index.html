@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+<div class="card-header">
+  <h3 class="card-title h1" id="title">Todo App 2</h3>
+</div>
+<ul id="task-list">
+  <li class="task">Görev 1</li>
+  <li class="task">Görev 2</li>
+  <li class="task">Görev 3</li>
+</ul>
+<ul id="task-list2">
+  <li class="task">Görev 1</li>
+  <li class="task">Görev 2</li>
+  <li class="task">Görev 3</li>
+</ul>
+
+<script>
+  let sonuc;
+  sonuc = document.getElementsByClassName("task")[0];
+  sonuc = document.getElementsByClassName("task")[1];
+
+  // taskList = document.getElementsByClassName("task");
+  // taskList = document.getElementsByTagName("li"); // Sayfada ki bütün li elementelerine ulaşır.
+
+  // ul = document.getElementById("task-list"); // Bu şekilde belli bir yere ulaşmış ve değiştirmiş oluruz
+  // taskList = ul.getElementsByTagName("li");  //
+
+  taskList = document.querySelectorAll("#task-list2 li"); // Bu da farklı bir şekilde kullanımı.
+
+
+  // for (let i = 0 ; i< taskList.length; i++){
+  //   console.log(taskList[i])
+  // }
+
+  for (let task of taskList) { // Of kullandığımız zaman elementlere ulaşmamızı sağlar & İn kullandığımız zaman index numaralarına ulaşmış oluruz.
+    console.log(task);
+  }
+
+  for (let task of taskList) {
+    task.style.color = "red"; // Yazının rengini değiştirme.
+    task.style.fontSize = "20px";
+    // task.innerText = "Görevler";  // Html içinde ki textleri değiştirme.
+  }
+
+  // console.log(sonuc);
+</script>
+</body>
+</html>
+
+
+
+
+
+

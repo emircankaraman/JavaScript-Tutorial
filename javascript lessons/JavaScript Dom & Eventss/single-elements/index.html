@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<div class="card-header">
+    <h3 class="cart-tittle" id="title">Todo App 2</h3>
+</div>
+
+<ul id="tast-list">
+    <li>Görev 1</li>
+    <li>Görev 2</li>
+    <li>Görev 3</li>
+</ul>
+<script>
+    let sonuc;
+    sonuc = document.getElementById("title");
+    sonuc = document.getElementById("title").id;
+    sonuc = document.getElementById("title").className;
+
+    document.getElementById("title").style.fontSize = "50px";
+    document.getElementById("title").style.color = "blue";
+    // document.getElementById("title").style.display="none";
+    document.getElementById("title").innerText = "Todo App 3"; // innerText etiketleri görmez !!!
+    document.getElementById("title").innerHTML = "<p>Todo App 4</p>";
+
+    sonuc = document.querySelector("#title"); // Sayfa da bulduğu ilk id title'ı sana getirir.
+    sonuc = document.querySelector(".card-header"); // Sayfa da bulduğu ilk class card-header'ı sana getirir.
+    sonuc = document.querySelector("div"); // Sayfa da bulduğu ilk div etiketini sana getiri.
+
+    sonuc = document.querySelector("li");
+    sonuc = document.querySelector("li:first-child"); // Liste etiketinde ki ilk elemeanı alır.
+    sonuc = document.querySelector("li:last-child");  // Liste etiketinde ki son elemanı alır.
+    sonuc = document.querySelector("li:nth-child(1)") // liste etiketlerini index nuramarasına göre alır.
+    console.log(sonuc);
+</script>
+</body>
+</html>
