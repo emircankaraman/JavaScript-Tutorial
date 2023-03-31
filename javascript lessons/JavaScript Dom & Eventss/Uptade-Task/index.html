@@ -61,8 +61,11 @@
         {"id": 3, gorevAdi: "Görev 3"},
         {"id": 4, gorevAdi: "Görev 4"},
     ]
-    displayTask();
+    let editİd;
+    let isEditTask = false;
+    let taskInput = document.querySelector("#txtTaskName");
 
+    displayTask();
     function displayTask() {
         let ul = document.getElementById("task-list")
         ul.innerHTML = "";
@@ -80,7 +83,7 @@
                             </button>
                             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                                 <li><a onclick="deleteTask(${gorev.id})" class="dropdown-item" href="#"><i class="fa-solid fa-trash-can"></i> Sil</a></li>
-                                <li><a class="dropdown-item" href="#"><i class="fa-solid fa-pen"></i> Düzenle</a></li>
+                                <li><a onclick='editTask(${gorev.id},"${gorev.gorevAdi}")' class="dropdown-item" href="#"><i class="fa-solid fa-pen"></i> Düzenle</a></li>
                             </ul>
                         </div>
                     </li>
@@ -98,11 +101,22 @@
     });
 
     function newTask(event) {
-        let taskInput = document.querySelector("#txtTaskName");
         if (taskInput.value == "") {
             alert("Görev Girmelisiniz");
         } else {
-            görevListesi.push({"id": görevListesi.length + 1, "gorevAdi": taskInput.value});
+            if (!isEditTask){
+                // ekleme
+                görevListesi.push({"id": görevListesi.length + 1, "gorevAdi": taskInput.value});
+            }
+            else {
+                // güncelleme
+                for (let gorev of görevListesi){
+                    if (gorev.id == editİd){
+                        gorev.gorevAdi = taskInput.value;
+                    }
+                    isEditTask = false;
+                }
+            }
             taskInput.value = "";
             displayTask();
         }
@@ -117,15 +131,18 @@
              }
          }
 
-        // deleteId = görevListesi.findIndex(function (gorev){
-        //     return gorev.id == id;
-        // });
-
-        // arrow function
-        // deleteId = görevListesi.findIndex(gorev => gorev.id == id);
-
         görevListesi.splice(deleteId, 1);
         displayTask();
+    }
+
+    function editTask(taskId,taskName){
+        editİd = taskId;
+        isEditTask = true;
+        taskInput.value= taskName;
+        taskInput.focus();
+        taskInput.classList.add("active");
+        console.log("edit id :", editİd);
+        console.log("edit mode :", isEditTask);
     }
 </script>
 

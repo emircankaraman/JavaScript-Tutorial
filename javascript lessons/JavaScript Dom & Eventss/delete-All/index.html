@@ -61,12 +61,19 @@
         {"id": 3, gorevAdi: "Görev 3"},
         {"id": 4, gorevAdi: "Görev 4"},
     ]
+    let editİd;
+    let isEditTask = false;
+    const taskInput = document.querySelector("#txtTaskName");
+    const btnClear = document.querySelector("#btnClear");
     displayTask();
 
     function displayTask() {
         let ul = document.getElementById("task-list")
         ul.innerHTML = "";
 
+        if (görevListesi.length == 0){
+            ul.innerHTML = "<p class='p-3 m-0 '>Görev listeniz boş.</p>";
+        }
         for (let gorev of görevListesi) {
             let li = `
                     <li class="task list-group-item">
@@ -79,8 +86,8 @@
                                 <i class="fa-solid fa-ellipsis"></i>
                             </button>
                             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                <li><a onclick="deleteTask(${gorev.id})" class="dropdown-item" href="#"><i class="fa-solid fa-trash-can"></i> Sil</a></li>
-                                <li><a class="dropdown-item" href="#"><i class="fa-solid fa-pen"></i> Düzenle</a></li>
+                                <li><a onclick="deleteTask(${gorev.id})" class="dropdown-item" href="#"><i class="fa-solid fa-trash-can"></i>Sil</a></li>
+                                <li><a onclick='editTask(${gorev.id},"${gorev.gorevAdi}")' class="dropdown-item" href="#"><i class="fa-solid fa-pen"></i>Düzenle</a></li>
                             </ul>
                         </div>
                     </li>
@@ -98,11 +105,21 @@
     });
 
     function newTask(event) {
-        let taskInput = document.querySelector("#txtTaskName");
         if (taskInput.value == "") {
             alert("Görev Girmelisiniz");
         } else {
-            görevListesi.push({"id": görevListesi.length + 1, "gorevAdi": taskInput.value});
+            if (!isEditTask) {
+                // ekleme
+                görevListesi.push({"id": görevListesi.length + 1, "gorevAdi": taskInput.value});
+            } else {
+                // güncelleme
+                for (let gorev of görevListesi) {
+                    if (gorev.id == editİd) {
+                        gorev.gorevAdi = taskInput.value;
+                    }
+                    isEditTask = false;
+                }
+            }
             taskInput.value = "";
             displayTask();
         }
@@ -111,22 +128,29 @@
 
     function deleteTask(id) {
         let deleteId;
-         for (let index in görevListesi) {
-             if (görevListesi[index].id == id) {
-                 deleteId = index;
-             }
-         }
-
-        // deleteId = görevListesi.findIndex(function (gorev){
-        //     return gorev.id == id;
-        // });
-
-        // arrow function
-        // deleteId = görevListesi.findIndex(gorev => gorev.id == id);
+        for (let index in görevListesi) {
+            if (görevListesi[index].id == id) {
+                deleteId = index;
+            }
+        }
 
         görevListesi.splice(deleteId, 1);
         displayTask();
     }
+
+    function editTask(taskId, taskName) {
+        editİd = taskId;
+        isEditTask = true;
+        taskInput.value = taskName;
+        taskInput.focus();
+        taskInput.classList.add("active");
+        console.log("edit id :", editİd);
+        console.log("edit mode :", isEditTask);
+    }
+    btnClear.addEventListener("click", function (){
+        görevListesi.splice(0,görevListesi.length);
+        displayTask();
+    });
 </script>
 
 
