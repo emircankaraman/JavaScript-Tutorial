@@ -1,0 +1,27 @@
+*{
+    color: white;
+}
+body{
+    background: #bf4d5d;
+}
+.card{
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    background-color: #0d1b2a;
+}
+.card-body {
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    min-height: 1px;
+    padding: 2.5rem;
+}
+.card-header:first-child {
+    border-radius: calc(0.25rem - 1px) calc(0.25rem - 1px) 0 0;
+    background: #000000;
+}
+.error{
+    border: 1px solid red ;
+}
+.btn:not(:disabled):not(.disabled) {
+    cursor: pointer;
+    background-color: rgba(13 ,27 ,42 ,0.3);
+}

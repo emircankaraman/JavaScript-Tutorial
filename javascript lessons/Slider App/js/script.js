@@ -21,56 +21,70 @@ var models = [
     },
     {
         name: "Kawasaki Ninja H2R",
-        image: "/javascript%20lessons/Slider%20App/İmg/Kawasaki-Ninja-H2-R.jpg",
-        link: 'https://www.epey.com/motosiklet/yamaha-mt-09.html',
+        image: "/javascript%20lessons/Slider%20App/İmg/nsc-s1000rr-P0N3H-multiimage-2560x1440.jpg.asset.1661501760414.webp",
+        link: 'https://www.epey.com/motosiklet/yamaha-mt-09.html'
     },
 ];
 
 var index = 0;
 var slaytCount = models.length;
-var settings ={
-    duration:'2000',
-    random:true
-}
+var interval;
+
+var settings = {
+    duration: '1000',
+    random: false
+};
 
 init(settings);
 
-document.querySelector('.fa-arrow-circle-left').addEventListener('click',function(){
+document.querySelector('.fa-arrow-circle-left').addEventListener('click', function () {
     index--;
     showSlide(index);
     console.log(index);
 });
 
-document.querySelector('.fa-arrow-circle-right').addEventListener('click',function(){
+document.querySelector('.fa-arrow-circle-right').addEventListener('click', function () {
     index++;
     showSlide(index);
     console.log(index);
 });
 
+document.querySelectorAll('.arrow').forEach(function (item) {
+    item.addEventListener('mouseenter', function () {
+        clearInterval(interval);
+    })
+});
 
-function init(settings){
-    // setTimeout()
-    // setInterval()
-    // clearInterval()
+document.querySelectorAll('.arrow').forEach(function (item) {
+    item.addEventListener('mouseleave', function () {
+        init(settings);
+    })
+})
+
+
+function init(settings) {
+
     var prev;
+    interval = setInterval(function () {
 
-    setInterval(function (){
-        //2 saniye de bir tekrarlanacak.
-        if (settings.random){
-            // ramdom index
+        if (settings.random) {
+            // random index
             do {
                 index = Math.floor(Math.random() * slaytCount);
-            }
-            while (index == prev)
+            } while (index == prev)
             prev = index;
-        }
-        else {
+        } else {
             // artan index
-
+            if (slaytCount == index + 1) {
+                index = -1;
+            }
+            showSlide(index);
+            console.log(index);
+            index++;
         }
-        console.log(index);
         showSlide(index);
-    },settings.duration);
+
+    }, settings.duration)
 }
 
 function showSlide(i){
