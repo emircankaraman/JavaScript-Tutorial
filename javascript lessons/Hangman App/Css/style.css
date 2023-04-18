@@ -1,0 +1,53 @@
+*{
+    box-sizing: border-box;
+}
+body{
+    background-color:#231b1b;
+    color: #e3dbdb;
+    height:88vh;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    overflow: hidden;
+}
+.container{
+    padding:20px 20px;
+    height: 450px;
+    width: 450px;
+    position: relative;
+    border-radius: 10px 10px 10px 10px;
+    background-color: #6b5252;
+    color: #e3dbdb;
+}
+.graphic{
+    fill:transparent;
+    stroke: #FFF;
+    stroke-width: 2px;
+}
+.item{
+    /*display: none;*/
+}
+#wrong-letters{
+    position: absolute;
+    top: 30px;
+    right: 30px;
+}
+
+#word{
+    display: flex;
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+}
+
+.letter{
+    border-bottom: 3px solid #231b1b;
+    font-size:30px ;
+    margin: 0 3px;
+    height: 40px;
+    width: 25px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+}
+
