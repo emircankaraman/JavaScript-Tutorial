@@ -15,8 +15,6 @@ body{
     height: 450px;
     width: 450px;
     position: relative;
-    border-radius: 10px 10px 10px 10px;
-    background-color: #6b5252;
     color: #e3dbdb;
 }
 .graphic{
@@ -41,7 +39,7 @@ body{
 }
 
 .letter{
-    border-bottom: 3px solid #231b1b;
+    border-bottom: 3px solid yellow;
     font-size:30px ;
     margin: 0 3px;
     height: 40px;
