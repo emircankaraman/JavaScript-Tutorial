@@ -1,46 +1,73 @@
-*{
+* {
     box-sizing: border-box;
 }
-body{
-    background-color:#231b1b;
+
+body {
+    background-color: #3a444e;
     color: #e3dbdb;
-    height:88vh;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
+    height: 88vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     overflow: hidden;
 }
-.container{
-    padding:20px 20px;
+
+.container {
+    padding: 20px 20px;
     height: 450px;
     width: 450px;
     position: relative;
     color: #e3dbdb;
 }
-.graphic{
-    fill:transparent;
+
+.graphic {
+    fill: transparent;
     stroke: #FFF;
     stroke-width: 2px;
 }
-.item{
-    /*display: none;*/
+
+.item {
+    display: none;
 }
-#wrong-letters{
+
+#wrong-letters {
     position: absolute;
     top: 30px;
     right: 30px;
 }
 
-#word{
+#popup-container {
+    background-color: rgba(0, 0, 0, 0.3);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    /*display: flex;*/
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+.popup {
+    background-color: green;
+    padding: 20px;
+    text-align: center;
+    border-radius: 5px;
+    box-shadow: 0 15px 10px 3px rgba(0, 0, 0, 0.1);
+}
+
+#word {
     display: flex;
     position: absolute;
     bottom: 10px;
     left: 50%;
+    transform: translate(-50%);
 }
 
-.letter{
+.letter {
     border-bottom: 3px solid yellow;
-    font-size:30px ;
+    font-size: 30px;
     margin: 0 3px;
     height: 40px;
     width: 25px;
@@ -49,3 +76,15 @@ body{
     align-items: center;
 }
 
+#messege{
+    background-color: rgba(0,0,0.3);
+    font-size: 20px;
+    border-radius: 5px;
+    padding: 10px 80px;
+    position: absolute;
+    bottom: -80px;
+    transition: transform 0.04s ease-in-out;
+}
+#messege.show{
+    transform: translateY(-80px);
+}
