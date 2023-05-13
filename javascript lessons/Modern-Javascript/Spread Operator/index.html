@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        /*
+        const msj = ["Benim", "adım", "Emircan", "Karaman"];
+        let sonuc = "";
+        for(let x of msj){
+            sonuc += x + " ";
+        }
+        console.log(sonuc);
+        console.log(...msj);
+
+        const dizi = ["bir", "iki"];
+        const dizi2 = ["üç","dört"];
+        const dizi3 = [...dizi , ...dizi2, "beş","altı"];
+        console.log(dizi3);
+        */
+
+        const sayilar1 = [1, 2, 3];
+        // const sayilar2 = sayilar1;  // referans copy
+        const sayilar2 = [...sayilar1]; // value copy
+        sayilar2[0] = 10;
+
+        console.log(sayilar1, sayilar2);
+
+        const user = {
+            usurname: "Emircan Karaman",
+            email: "infon@gmail.com"
+        }
+        const address = {
+            city: "Giresun"
+        }
+
+        console.log({ ...user, ...address })
+
+        // resst parameters
+
+        function toplam(...args) {
+            let sonuc = 0;
+            for (let sayi of args) {
+                sonuc += sayi;
+            }
+            return sonuc;
+        }
+        console.log(toplam(1, 3, 5));
+        console.log(toplam(1, 3, 5, 7, 9));
+
+        function bilgileriGöster(isim, soyisim, ...adres) {
+            console.log(isim, soyisim, adres);
+        }
+        bilgileriGöster("Emircan","Karaman","İstanbul","Kadıköy");
+
+    </script>
+</body>
+
+</html>

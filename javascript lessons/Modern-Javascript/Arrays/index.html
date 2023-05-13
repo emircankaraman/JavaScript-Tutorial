@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+        const sayilar = [1, 5, 6, 9, 6, 2, 4, 74,];
+        /*
+        const tekSayiler = [];
+        for (let sayi of sayilar) {
+            if (sayi % 2 == 1) {
+               tekSayiler.push(sayi);
+            }
+        }
+        console.log("Tek sayilar => " + tekSayiler);
+        */
+        // const tekSayilar =  sayilar.filter((sayi) => sayi % 2 == 1); 
+        // const tekSayilar =  sayilar.map((sayi) => sayi % 2 == 1); 
+
+        const urunler = [
+            { urunAdi: "Iphone 11", urunFiyati: 12000 },
+            { urunAdi: "Iphone 12", urunFiyati: 15000 },
+            { urunAdi: "Iphone 13", urunFiyati: 18000 },
+            { urunAdi: "Iphone 14", urunFiyati: 22000 },
+        ]
+
+        // const sonuc = urunler.map(urun => urun.urunAdi);
+        // const sonuc = urunler.filter(urun => urun.urunFiyati >= 15000).map(urun => urun.urunAdi);
+        // const sonuc = urunler.find(urun => urun.urunFiyati > 12000);
+        const sonuc = urunler.findIndex(urun => urun.urunFiyati > 12000);
+    
+        console.log(sonuc);
+    </script>
+</body>
+
+</html>
